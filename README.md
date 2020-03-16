@@ -1,16 +1,16 @@
 # Dimag ka dahi
 A brainfck interpreter written in C.
 
-#Build
+# Build
 ```
 make dimag-ka-dahi
 #If Debug then 'make Debug'
 ```
-#Run
+# Run
 ```
 ./bin/dimag-ka-dahi source_file
 ```
 
-#LICENSE
-Code provided under MIT LICENSE. See LICENSE
+# LICENSE
+Code provided under MIT LICENSE. See LICENSE.
 
