@@ -13,9 +13,9 @@
 #define JMP_BCK ']'
 
 int main(int argc, char *argv[]){
-	if(argc ==1){
-		perror("Source file not specified");
-		return (-1);
+	if(argc <2){
+		printf("Source file not specified\n");
+		return -1;
 	}
 	
 	//Opening the source file
