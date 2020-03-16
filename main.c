@@ -14,15 +14,25 @@
 
 int main(int argc, char *argv[]){
 	if(argc ==1){
-		printf("Source file not specified\n");
-		exit(0);
+		perror("Source file not specified");
+		return (-1);
 	}
 	
 	//Opening the source file
 	FILE *fp;
 	fp = fopen(argv[1],"r");
+	if(fp == NULL) {
+		perror("Error opening file");
+		return (-1);
+	}
 	char program[30000];
-	fgets(program,30000,fp);
+	int r;
+	int proglen=0;
+	for(r=0;r<30000;r++){
+		program[r]=fgetc(fp);
+		proglen++;
+		if(feof(fp)) break;
+	}	
 	fclose(fp);
 
 	//Initializing the array
@@ -31,7 +41,7 @@ int main(int argc, char *argv[]){
 
 	//Parsing the source file
 	int i;
-	for(i=0;i<strlen(program);i++){
+	for(i=0;i<proglen;i++){
 		//For implementing nested loops
 		int nested=0;
 		
@@ -77,6 +87,9 @@ int main(int argc, char *argv[]){
 					}
 					i--;
 				}
+				break;
+			default:
+				break;
 		}
 	}
 	return 0;
